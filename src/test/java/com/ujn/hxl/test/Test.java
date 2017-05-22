@@ -1,5 +1,6 @@
 package com.ujn.hxl.test;
 
+import com.ujn.hxl.inter.IUserOperation;
 import com.ujn.hxl.model.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -44,7 +45,8 @@ public class Test {
     public static void test2(){
         SqlSession session = sqlSessionFactory.openSession();
         try {
-            User user = (User)session.selectOne("com.ujn.hxl.models.UserMapper.selectUserByID",1);
+            IUserOperation userOperation  = session.getMapper(IUserOperation.class);
+            User user = userOperation.selectUserByID(1);
             System.out.println(user.getUserName());
             System.out.println(user.getUserAddress());
         }catch (Exception e){
@@ -57,6 +59,6 @@ public class Test {
     }
 
     public static void main(String[] args) {
-
+        test2();
     }
 }
