@@ -1,6 +1,7 @@
 package com.ujn.hxl.test;
 
 import com.ujn.hxl.inter.IUserOperation;
+import com.ujn.hxl.model.Article;
 import com.ujn.hxl.model.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -119,7 +120,23 @@ public class Test {
         }
     }
 
+    public static void getUserArticles(int userid){
+        SqlSession session = sqlSessionFactory.openSession();
+        try {
+            IUserOperation userOperation=session.getMapper(IUserOperation.class);
+            List<Article> articles = userOperation.getUserArticles(userid);
+            for(Article article:articles){
+                System.out.println(article.getTitle()+":"+article.getContent()+
+                        ":作者是:"+article.getUser().getUserName()+":地址:"+
+                        article.getUser().getUserAddress());
+            }
+        } finally {
+            session.close();
+        }
+    }
+
     public static void main(String[] args) {
-        deleteUser(3);
+
+        getUserArticles(1);
     }
 }

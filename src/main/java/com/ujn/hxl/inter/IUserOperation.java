@@ -1,5 +1,6 @@
 package com.ujn.hxl.inter;
 
+import com.ujn.hxl.model.Article;
 import com.ujn.hxl.model.User;
 
 import java.util.List;
@@ -13,4 +14,5 @@ public interface IUserOperation {
     public void addUser(User user);
     public void updateUser(User user);
     public void deleteUser(int id);
+    public List<Article> getUserArticles(int id);
 }
