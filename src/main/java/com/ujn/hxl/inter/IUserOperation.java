@@ -2,6 +2,8 @@ package com.ujn.hxl.inter;
 
 import com.ujn.hxl.model.Article;
 import com.ujn.hxl.model.User;
+import com.ujn.hxl.util.PageInfo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,4 +17,5 @@ public interface IUserOperation {
     public void updateUser(User user);
     public void deleteUser(int id);
     public List<Article> getUserArticles(int id);
+    public List<Article> selectArticleListPage(@Param("page") PageInfo page, @Param("userid") int userid);
 }

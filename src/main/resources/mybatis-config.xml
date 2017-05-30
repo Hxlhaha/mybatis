@@ -6,4 +6,10 @@
     <typeAlias alias="User" type="com.ujn.hxl.model.User"/>
     <typeAlias alias="Article" type="com.ujn.hxl.model.Article"/>
 </typeAliases>
+    <plugins>
+        <plugin interceptor="com.ujn.hxl.util.PagePlugin">
+            <property name="dialect" value="mysql" />
+            <property name="pageSqlId" value=".*ListPage.*" />
+        </plugin>
+    </plugins>
 </configuration>

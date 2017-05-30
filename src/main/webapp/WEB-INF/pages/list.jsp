@@ -11,5 +11,6 @@
 <c:forEach items="${articles}" var="item">
     ${item.id }--${item.title }--${item.content }<br />
 </c:forEach>
+<div style="padding:20px;">${pageStr}</div>
 </body>
 </html>

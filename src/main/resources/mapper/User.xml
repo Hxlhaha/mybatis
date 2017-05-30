@@ -41,4 +41,10 @@
          select user.id,user.userName,user.userAddress,article.id aid,article.title,article.content from user,article
               where user.id=article.userid and user.id=#{id}
     </select>
+
+    <!-- 分页查询测试 -->
+    <select id="selectArticleListPage" resultMap="resultUserArticleList">
+        select user.id,user.userName,user.userAddress,article.id aid,article.title,article.content from user,article
+        where user.id=article.userid and user.id=#{userid}
+    </select>
 </mapper>
